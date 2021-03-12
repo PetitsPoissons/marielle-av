@@ -1,20 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class Header extends Component {
-  render() {
-    return (
-      <nav className="teal accent-3">
-        <div className="nav-wrapper">
-          <a className="left brand-logo">Emaily</a>
-          <ul className="right">
-            <li>
-              <a>Login With Google</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    );
-  }
-}
+const Header = ({ auth }) => {
+  console.log(auth);
+  return (
+    <nav className="teal accent-3">
+      <div className="nav-wrapper">
+        <a className="left brand-logo">L'Assiette Verte</a>
+        <ul className="right">
+          <li>
+            <a>Login</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
-export default Header;
+Header.propTypes = {
+  auth: PropTypes.object.isRequired,
+};
+
+// bring in the auth state
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps)(Header);

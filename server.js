@@ -1,18 +1,27 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const morgan = require('morgan');
+const connectDB = require('./config/connection');
 const session = require('express-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User');
 require('./services/passport');
 
-// connect to MongoDB
-mongoose.connect(keys.mongoURI);
-
 // create our express app
 const app = express();
 
-// tell express that it needs to use cookies
+// connect to MongoDB
+connectDB();
+
+// MIDDLEWARE
+// dev help debug
+app.use(morgan('dev'));
+
+// body parser
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// express session middleware
 app.use(
   session({
     secret: keys.secret, // secret used to encrypt our cookie
@@ -22,14 +31,16 @@ app.use(
   })
 );
 
-// instruct passport that it needs to make use of cookies to handle authentication in our app
+// passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// attach our routes
-require('./routes/authRoutes')(app);
+// ROUTES
+app.get('/', (req, res) => res.send('API running'));
+app.use('/api/auth', require('./routes/auth');
 
+// START the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });

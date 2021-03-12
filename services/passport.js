@@ -3,7 +3,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
-// create an instance of the model User
+// create an instance of the User model
 const User = mongoose.model('users');
 
 // encode user id
@@ -20,10 +20,10 @@ passport.deserializeUser((id, done) => {
 
 // tell the passport library that it should make use of the local strategy inside our app
 passport.use(
-  new LocalStrategy(function (username, password, done) {
+  new LocalStrategy(function (email, password, done) {
     // check if user already exits inside the users collection
-    User.findOne({ username: username }, function (err, user) {
-      console.log('User ' + username + ' attempted to log in.');
+    User.findOne({ email: email }, function (err, user) {
+      console.log('User with email' + email + ' attempted to log in.');
       if (err) {
         return done(err);
       }
