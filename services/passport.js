@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
 // create an instance of the User model
-const User = mongoose.model('users');
+const User = mongoose.model('user');
 
 // encode user id
 passport.serializeUser((user, done) => {
