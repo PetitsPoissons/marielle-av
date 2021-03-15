@@ -1,5 +1,5 @@
 const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 const JwtStrategy = require('passport-jwt').Strategy;
 const { ExtractJwt } = require('passport-jwt');
 const User = require('../models/User');
@@ -17,7 +17,7 @@ const keys = require('../config/keys');
 //   });
 // });
 
-// tell the passport library that it should make use of the jwt strategy inside our app
+// JSON WEB TOKENS STRATEGY
 passport.use(
   new JwtStrategy(
     {
@@ -37,6 +37,30 @@ passport.use(
       } catch (error) {
         done(error, false);
       }
+    }
+  )
+);
+
+// LOCAL STRATEGY
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: 'email',
+    },
+    async (email, password, done) => {
+      // find the user given the email
+      const user = await User.findOne({ email });
+
+      // if no user found, handle it
+      if (!user) {
+        return done(null, false);
+      }
+
+      // if user is found, check if the password is correct
+
+      // if password invalid, handle it
+
+      // otherwise, return the user
     }
   )
 );
