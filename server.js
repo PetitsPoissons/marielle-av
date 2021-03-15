@@ -1,11 +1,11 @@
 const express = require('express');
 const morgan = require('morgan');
 const connectDB = require('./config/connection');
-const session = require('express-session');
-const passport = require('passport');
-const keys = require('./config/keys');
-require('./models/User');
-require('./services/passport');
+// const session = require('express-session');
+// const passport = require('passport');
+// const keys = require('./config/keys');
+// require('./models/User');
+// require('./services/passport');
 
 // create our express app
 const app = express();
@@ -22,18 +22,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // express session middleware
-app.use(
-  session({
-    secret: keys.secret, // secret used to encrypt our cookie
-    maxAge: 6 * 60 * 60 * 1000, // cookie lasts 6 hrs in milliseconds
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+// app.use(
+//   session({
+//     secret: keys.secret, // secret used to encrypt our cookie
+//     maxAge: 6 * 60 * 60 * 1000, // cookie lasts 6 hrs in milliseconds
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
 
 // passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // ROUTES
 app.get('/', (req, res) => res.send('API running'));

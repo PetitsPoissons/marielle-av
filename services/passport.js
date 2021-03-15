@@ -1,39 +1,42 @@
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const mongoose = require('mongoose');
+// const LocalStrategy = require('passport-local').Strategy;
+const JwtStrategy = require('passport-jwt').Strategy;
+const { ExtractJwt } = require('passport-jwt');
+const User = require('../models/User');
 const keys = require('../config/keys');
 
-// create an instance of the User model
-const User = mongoose.model('user');
-
 // encode user id
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+// passport.serializeUser((user, done) => {
+//   done(null, user.id);
+// });
 
 // decode user id
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
-    done(null, user);
-  });
-});
+// passport.deserializeUser((id, done) => {
+//   User.findById(id).then((user) => {
+//     done(null, user);
+//   });
+// });
 
-// tell the passport library that it should make use of the local strategy inside our app
+// tell the passport library that it should make use of the jwt strategy inside our app
 passport.use(
-  new LocalStrategy(function (email, password, done) {
-    // check if user already exits inside the users collection
-    User.findOne({ email: email }, function (err, user) {
-      console.log('User with email' + email + ' attempted to log in.');
-      if (err) {
-        return done(err);
+  new JwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
+      secretOrKey: keys.jwtSecret,
+    },
+    async (jwtPayload, done) => {
+      try {
+        // find the user specified in token
+        const user = await User.findById(jwtPayload.sub);
+        // if user doesn't exist, handle it
+        if (!user) {
+          return done(null, false);
+        }
+        // otherwise, return the user
+        done(null, user);
+      } catch (error) {
+        done(error, false);
       }
-      if (!user) {
-        return done(null, false);
-      }
-      if (password !== user.password) {
-        return done(null, false);
-      } // null tells passport there was no error and we pass the user info
-      return done(null, user);
-    });
-  })
+    }
+  )
 );
