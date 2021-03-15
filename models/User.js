@@ -41,6 +41,15 @@ UserSchema.pre('save', async function (next) {
   }
 });
 
+// Create a method to verify password match (cannot use the fat arrow for same reason as above)
+UserSchema.methods.isValidPassword = async function (loginPassword) {
+  try {
+    return await bcrypt.compare(loginPassword, this.password); // returns a boolean
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 // Create a model
 const User = mongoose.model('user', UserSchema);
 
