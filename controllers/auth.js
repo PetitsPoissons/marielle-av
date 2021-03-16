@@ -21,15 +21,18 @@ module.exports = {
     const { email, password } = req.value.body;
 
     // check if a user with that email already exists in the database
-    const foundUser = await User.findOne({ email: email });
+    const foundUser = await User.findOne({ 'local.email': email });
     if (foundUser) {
       return res.status(403).send({ error: 'Email is already in use' });
     }
 
     // create a new user
     const newUser = new User({
-      email: email,
-      password: password,
+      method: 'local',
+      local: {
+        email: email,
+        password: password,
+      },
     });
     await newUser.save();
 
