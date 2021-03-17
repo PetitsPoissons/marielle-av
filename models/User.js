@@ -37,6 +37,9 @@ const UserSchema = new mongoose.Schema({
       type: String,
       lowercase: true,
     },
+    photo: {
+      type: String,
+    },
   },
   createdAt: {
     type: Date,

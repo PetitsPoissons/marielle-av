@@ -28,6 +28,14 @@ router
     AuthController.signIn
   );
 
+// User authenticated with Facebook
+router
+  .route('/facebook')
+  .post(
+    passport.authenticate('facebookToken', { session: false }),
+    AuthController.signIn
+  );
+
 // Authenticated user can access test secret page
 router
   .route('/secret')
