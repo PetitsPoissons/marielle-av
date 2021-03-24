@@ -1,20 +1,49 @@
+// React imports
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+// Redux imports
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+// Styles & Images
+import { Col, Icon, Row, SideNav, SideNavItem } from 'react-materialize';
+
 const Header = ({ auth }) => {
-  console.log(auth);
   return (
-    <nav className="teal accent-3">
-      <div className="nav-wrapper">
-        <a className="left brand-logo">L'Assiette Verte</a>
-        <ul className="right">
-          <li>
-            <a>Login</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <Row className="white row4header">
+      <Col s={2} className="center-align">
+        <SideNav
+          id="SideNav-10"
+          options={{
+            draggable: true,
+          }}
+          trigger={<Icon className="black-text">menu</Icon>}
+        >
+          <SideNavItem divider />
+          <SideNavItem href="/" waves>
+            Home
+          </SideNavItem>
+          <SideNavItem href="/recipes" waves>
+            Recipes
+          </SideNavItem>
+          <SideNavItem href="/veganism" waves>
+            Why Vegan?
+          </SideNavItem>
+          <SideNavItem href="/auth" waves>
+            Join In
+          </SideNavItem>
+        </SideNav>
+      </Col>
+      <Col s={8} className="center-align">
+        <Link to="/" className="brand-av">
+          L'Assiette Verte
+        </Link>
+      </Col>
+      <Col s={2} className="center-align">
+        <Link to="/">Join In!</Link>
+      </Col>
+    </Row>
   );
 };
 

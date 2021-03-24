@@ -1,0 +1,51 @@
+/* Global Styles */
+:root {
+  --text-general: #263238;
+  --btn-collapse: #039be5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+  background-color: #fff;
+  color: #444;
+}
+
+a {
+  color: var(--text-general);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+/* Navbar */
+.row4header {
+  margin: 1rem auto;
+}
+
+.brand-av {
+  font-size: 3rem;
+}
+
+/* Parallax */
+.parallax-container {
+  min-height: 200px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+.parallax-container .section {
+  width: 100%;
+}
