@@ -8,13 +8,15 @@ import PropTypes from 'prop-types';
 import { fetchUser } from '../actions';
 
 // Components
-import Header from './Header';
+import Navbar from './layoutComponents/Navbar';
+import Hero from './layoutComponents/Hero';
+
+// Styles & Images
+import { GlobalStyle } from './globalStyles';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const RecipeNew = () => <h2>RecipeNew</h2>;
 const Landing = () => <h2>Landing</h2>;
-
-// Styles & Images
 
 const App = ({ fetchUser }) => {
   // fecth user on loading the app
@@ -24,9 +26,10 @@ const App = ({ fetchUser }) => {
 
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <div>
-        <Header />
-        <Route exact path="/" component={Landing}></Route>
+        <Hero />
+        <Route exact path="/landing" component={Landing}></Route>
         <Route exact path="/dashboard" component={Dashboard}></Route>
         <Route exact path="/recipes/new" component={RecipeNew}></Route>
       </div>

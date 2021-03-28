@@ -13,9 +13,6 @@ import reducers from './reducers';
 import App from './components/App';
 
 // Styles & Images
-import 'materialize-css';
-import './index.css';
-// import 'materialize-css/dist/css/materialize.min.css';
 
 const initialState = {};
 
