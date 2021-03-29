@@ -9,14 +9,12 @@ import { fetchUser } from '../actions';
 
 // Components
 import Navbar from './layoutComponents/Navbar';
-import Hero from './layoutComponents/Hero';
+import Home from './pages/Home';
 
 // Styles & Images
-import { GlobalStyle } from './globalStyles';
 
 const Dashboard = () => <h2>Dashboard</h2>;
 const RecipeNew = () => <h2>RecipeNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 const App = ({ fetchUser }) => {
   // fecth user on loading the app
@@ -26,10 +24,9 @@ const App = ({ fetchUser }) => {
 
   return (
     <BrowserRouter>
-      <GlobalStyle />
       <div>
-        <Hero />
-        <Route exact path="/landing" component={Landing}></Route>
+        <Navbar />
+        <Route exact path="/" component={Home}></Route>
         <Route exact path="/dashboard" component={Dashboard}></Route>
         <Route exact path="/recipes/new" component={RecipeNew}></Route>
       </div>

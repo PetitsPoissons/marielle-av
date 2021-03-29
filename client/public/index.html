@@ -30,37 +30,12 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto&display=swap"
       rel="stylesheet"
     />
-
-    Report this ad 43 19 I have a Meteor/React project, using ES6 modules. I've
-    installed materialize-css using npm, but I'm not sure how to actually use
-    the Materialize classes in my JSX code. What am I supposed to import from
-    materialize-css? Or do I just have to include the CSS in my main index.html
-    file? I mostly want it for the grid system, as I'll be using material-ui for
-    the actual UI components. reactjs npm materialize material-ui Share Improve
-    this question Follow asked Feb 19 '16 at 7:35 ffxsam 20.3k2828 gold
-    badges7070 silver badges126126 bronze badges I'm starring this for later,
-    hopefully you get a good response - I've not had luck with using ES6 imports
-    to get materialize-css into my projects, I've had to resort to the
-    old-school
-    <link rel="stylesheet" href="[insert CDN url]" />
-    , which I do not enjoy. – lux Feb 19 '16 at 16:14 Are you using webpack for
-    this? Have you come to a solution? I, too have been using the CSS for the
-    grid only, but I get by with a link in the head tag; I'm just curious to see
-    how others use it. – joepin Apr 24 '18 at 15:41 Add a comment 15 Answers 36
-    Since I use CSS Modules, importing materialize css would scope it to that
-    particular component. So I did the following Step 1) install materialise npm
-    install materialize-css@next Step 2) in index.html
-
     <!--Import Google Icon Font-->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <!-- Materialize compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/css/materialize.min.css"
-    />
+
     <title>L'Assiette Verte</title>
   </head>
   <body>
