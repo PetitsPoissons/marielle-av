@@ -12,37 +12,24 @@ const Home = () => {
   }, []);
   return (
     <>
-      <div>
-        <div className="row row-one">
-          <div className="col s6 row-one-left">
-            <div className="parallax-container">
-              <div className="parallax">
-                <img src={image1} alt="Vegan Food" className="" />
-              </div>
-            </div>
-          </div>
-          <div className="col s6 row-one-right">
-            <div className="parallax-container">
-              <div className="parallax">
-                <img src={image2} alt="Lettuce Fiels" className="" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row row-two">
-          <div className="col s4 white row-two-left">
-            <h2>Test Parallax</h2>
-            <p>Demo for materialize css parallax</p>
-          </div>
-
-          <div className="col s4 row-two-center">
-            <img src={logo} alt="Lettuce Fiels" className="" />
-          </div>
-          <div className="col s4 row-two-right">
-            <img src={image3} alt="Lettuce Fiels" className="" />
-          </div>
+      <div className="parallax-container">
+        <div className="parallax">
+          <img src={image1} alt="Vegan Food" className="responsive-img" />
         </div>
       </div>
+
+      <div className="section white">
+        <div className="row container">
+          <h2>Test Parallax</h2>
+          <p>Demo for materialize css parallax</p>
+        </div>
+      </div>
+      <div className="parallax-container">
+        <div className="parallax">
+          <img src={image2} alt="Lettuce Fiels" className="" />
+        </div>
+      </div>
+
       <div className="container container-home">
         <div className="row row-three grey white-text">
           <h3>End of demo</h3>
