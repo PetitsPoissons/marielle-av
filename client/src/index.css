@@ -17,19 +17,14 @@
 
 /* Parallax */
 .container-home {
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  background-color: aqua;
 }
 
-.row-one,
+/* .row-one,
 .row-two {
   width: 100%;
-}
-.row-one {
-  z-index: 0;
-}
-.row-two {
-  z-index: 10;
-}
+} */
 
 .row-one-left,
 .row-one-right {
