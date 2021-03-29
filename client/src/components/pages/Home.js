@@ -1,5 +1,4 @@
 import React from 'react';
-// import M from 'materialize-css';
 import { Parallax } from 'react-materialize';
 import image1 from '../../assets/pexels-bulbfish-1143754.jpeg';
 import image2 from '../../assets/pexels-jatuphon-buraphon-348689.jpeg';
@@ -7,10 +6,6 @@ import image3 from '../../assets/pexels-maria-orlova-4947354.jpeg';
 import logo from '../../assets/pexels-vegan-liftz-2377164.jpeg';
 
 const Home = () => {
-  // useEffect(() => {
-  //   let elements = document.querySelectorAll('.parallax');
-  //   M.Parallax.init(elements);
-  // }, []);
   return (
     <div>
       <Parallax
