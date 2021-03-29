@@ -11,27 +11,32 @@ const Home = () => {
       <div className="container container-home">
         <div className="row row-one">
           <div className="col s6 row-one-left">
-            <Parallax speed={-5}>
-              <img src={image1} alt="Vegan Food" className="" />
+            <Parallax speed={-5} zIndex={0}>
+              <img src={image1} alt="Vegan Food" />
             </Parallax>
           </div>
           <div className="col s6 row-one-right">
-            <Parallax speed={-5}>
-              <img src={image2} alt="Lettuce Fiels" className="" />
+            <Parallax speed={-5} zIndex={0}>
+              <img src={image2} alt="Lettuce Fiels" />
             </Parallax>
           </div>
         </div>
+
         <div className="row row-two">
           <div className="col s4 white row-two-left">
             <h2>Test Parallax</h2>
+
             <p>Demo for materialize css parallax</p>
           </div>
 
           <div className="col s4 row-two-center">
             <img src={logo} alt="Lettuce Fiels" className="" />
           </div>
+
           <div className="col s4 row-two-right">
-            <img src={image3} alt="Lettuce Fiels" className="" />
+            <Parallax speed={-5} zIndex={10}>
+              <img src={image3} alt="Lettuce Fiels" className="" />
+            </Parallax>
           </div>
         </div>
       </div>
