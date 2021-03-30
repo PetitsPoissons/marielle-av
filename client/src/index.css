@@ -13,34 +13,11 @@
 /* Navbar */
 .title {
   margin-bottom: 0;
+  background: linear-gradient(to bottom, transparent, white, transparent);
+  z-index: 0;
 }
 
 /* Parallax */
-.container-home {
-  /* min-height: 100vh; */
-  background-color: aqua;
-}
-
-.row-one,
-.row-two {
-  width: 100%;
-}
-
-.row-one-left,
-.row-one-right {
-  width: 50%;
-}
-
-.row-two-left,
-.row-two-center,
-.row-two-right {
-  width: 33%;
-}
-
 img {
   width: 100%;
-}
-
-.row-three {
-  min-height: 100vh;
 }

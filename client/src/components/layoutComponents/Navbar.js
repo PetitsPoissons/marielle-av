@@ -34,11 +34,13 @@ const Navbar = () => {
       <ul id="slide-out" class="sidenav">
         <li>
           <a href="#!">
-            <i class="material-icons">cloud</i>First Link With Icon
+            <i class="material-icons">help_outline</i>Why vegan?
           </a>
         </li>
         <li>
-          <a href="#!">Second Link</a>
+          <a href="#!">
+            <i class="material-icons">menu_book</i>Recipes
+          </a>
         </li>
         <li>
           <div class="divider"></div>
