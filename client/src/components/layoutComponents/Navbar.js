@@ -1,4 +1,8 @@
+// React imports
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+// Style & Images
 import M from 'materialize-css';
 
 const Navbar = () => {
@@ -7,54 +11,78 @@ const Navbar = () => {
     M.Sidenav.init(sidenav, {});
   }, []);
   return (
-    <div className="navbar-fixed">
-      <nav className="no-shadows white">
-        <div className="container">
-          <a
-            href="#"
-            data-target="slide-out"
-            className="sidenav-trigger show-on-large"
-          >
-            <i className="material-icons grey-text text-darken-4">menu</i>
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="#" className="grey-text text-darken-4">
-                Join In
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="nav-wrapper">
-          <h2 className="title grey-text text-darken-4 center">
-            L'ASSIETTE VERTE
-          </h2>
-        </div>
-      </nav>
-      <ul id="slide-out" class="sidenav">
+    <>
+      <ul id="slide-out" className="sidenav">
         <li>
-          <a href="#!">
-            <i class="material-icons">help_outline</i>Why vegan?
-          </a>
+          <Link href="#!">
+            <i className="material-icons">help_outline</i>Why vegan?
+          </Link>
         </li>
         <li>
-          <a href="#!">
-            <i class="material-icons">menu_book</i>Recipes
-          </a>
+          <Link href="#!">
+            <i className="material-icons">menu_book</i>Recipes
+          </Link>
         </li>
         <li>
-          <div class="divider"></div>
+          <div className="divider"></div>
         </li>
         <li>
-          <a class="subheader">Subheader</a>
+          <Link href="#!">
+            <i className="material-icons">how_to_reg</i>Sign Up
+          </Link>
         </li>
         <li>
-          <a class="waves-effect" href="#!">
-            Third Link With Waves
-          </a>
+          <Link href="#!">
+            <i className="material-icons">login</i>Sign In
+          </Link>
+        </li>
+        <li>
+          <Link href="#!">
+            <i className="material-icons">logout</i>Sign Out
+          </Link>
         </li>
       </ul>
-    </div>
+      <div className="navbar-fixed">
+        <nav className="no-shadows white">
+          <div className="container">
+            <Link
+              href="#"
+              data-target="slide-out"
+              className="sidenav-trigger show-on-large"
+            >
+              <i
+                className="material-icons grey-text text-darken-4"
+                id="hamburger-menu"
+              >
+                menu
+              </i>
+            </Link>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li>
+                <Link href="#" className="grey-text text-darken-4">
+                  Sign Up
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="grey-text text-darken-4">
+                  Sign In
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="grey-text text-darken-4">
+                  Sign Out
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="nav-wrapper">
+            <h2 className="large grey-text text-darken-4 center" id="av-title">
+              L'ASSIETTE VERTE
+            </h2>
+          </div>
+        </nav>
+      </div>
+    </>
   );
 };
 export default Navbar;

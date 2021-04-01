@@ -1,6 +1,7 @@
-import { FETCH_USER } from '../actions/types';
+import { SIGNUP_SUCCESS, SIGNUP_FAIL, FETCH_USER } from '../actions/types';
 
 const initialState = {
+  loading: true,
   isAuthenticated: null,
   currentUser: null,
 };

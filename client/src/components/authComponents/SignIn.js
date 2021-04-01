@@ -9,6 +9,8 @@ import { connect } from 'react-redux';
 
 // Styles & Images
 
-const Register = () => {};
+const SignIn = () => {
+  return <div>This is a SignIn component</div>;
+};
 
-export default Register;
+export default SignUp;
