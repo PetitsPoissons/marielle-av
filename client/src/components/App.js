@@ -5,11 +5,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Redux imports
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchUser } from '../actions';
+import { fetchUser } from '../actions/authActions';
 
 // Components
-import Navbar from './layoutComponents/Navbar';
 import Home from './pages/Home';
+import Navbar from './layoutComponents/Navbar';
+import SignUp from './authComponents/SignUp';
+import SignIn from './authComponents/SignIn';
 
 // Styles & Images
 
@@ -27,6 +29,8 @@ const App = ({ fetchUser }) => {
       <div>
         <Navbar />
         <Route exact path="/" component={Home}></Route>
+        <Route exact path="/signup" component={SignUp}></Route>
+        <Route exact path="/signin" component={SignIn}></Route>
         <Route exact path="/dashboard" component={Dashboard}></Route>
         <Route exact path="/recipes/new" component={RecipeNew}></Route>
       </div>

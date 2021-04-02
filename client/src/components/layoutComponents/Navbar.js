@@ -14,12 +14,12 @@ const Navbar = () => {
     <>
       <ul id="slide-out" className="sidenav">
         <li>
-          <Link href="#!">
+          <Link to="#!">
             <i className="material-icons">help_outline</i>Why vegan?
           </Link>
         </li>
         <li>
-          <Link href="#!">
+          <Link to="#!">
             <i className="material-icons">menu_book</i>Recipes
           </Link>
         </li>
@@ -27,17 +27,17 @@ const Navbar = () => {
           <div className="divider"></div>
         </li>
         <li>
-          <Link href="#!">
+          <Link to="/signup">
             <i className="material-icons">how_to_reg</i>Sign Up
           </Link>
         </li>
         <li>
-          <Link href="#!">
+          <Link to="/signin">
             <i className="material-icons">login</i>Sign In
           </Link>
         </li>
         <li>
-          <Link href="#!">
+          <Link to="#!">
             <i className="material-icons">logout</i>Sign Out
           </Link>
         </li>
@@ -46,7 +46,7 @@ const Navbar = () => {
         <nav className="no-shadows white">
           <div className="container">
             <Link
-              href="#"
+              to="#"
               data-target="slide-out"
               className="sidenav-trigger show-on-large"
             >
@@ -59,17 +59,17 @@ const Navbar = () => {
             </Link>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li>
-                <Link href="#" className="grey-text text-darken-4">
+                <Link to="/signup" className="grey-text text-darken-4">
                   Sign Up
                 </Link>
               </li>
               <li>
-                <Link href="#" className="grey-text text-darken-4">
+                <Link to="/signin" className="grey-text text-darken-4">
                   Sign In
                 </Link>
               </li>
               <li>
-                <Link href="#" className="grey-text text-darken-4">
+                <Link to="#!" className="grey-text text-darken-4">
                   Sign Out
                 </Link>
               </li>

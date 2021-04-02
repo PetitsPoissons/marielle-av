@@ -13,4 +13,4 @@ const SignIn = () => {
   return <div>This is a SignIn component</div>;
 };
 
-export default SignUp;
+export default SignIn;
