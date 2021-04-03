@@ -59,3 +59,9 @@ img {
 .input-field .prefix.active {
   color: #000;
 }
+
+.altAuthTxt,
+.facebookBtn,
+.googleBtn {
+  margin: 2rem 1rem;
+}

@@ -77,7 +77,7 @@ const Navbar = () => {
           </div>
           <div className="nav-wrapper">
             <h2 className="large grey-text text-darken-4 center" id="av-title">
-              L'ASSIETTE VERTE
+              Vital Vegetal
             </h2>
           </div>
         </nav>

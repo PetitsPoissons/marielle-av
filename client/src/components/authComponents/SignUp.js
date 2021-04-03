@@ -8,11 +8,39 @@ import { connect } from 'react-redux';
 // import { register } from '../../actions/auth';
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log('formData', formData);
+  };
+
   return (
     <div className="container" style={{ marginTop: '3rem' }}>
       <div className="row">
         <div className="col s6">
-          <form>
+          <form onSubmit={(e) => onSubmit(e)}>
+            <div className="row">
+              <div className="input-field col s12">
+                <i className="material-icons prefix">person</i>
+                <input
+                  name="username"
+                  type="text"
+                  id="username"
+                  className="validate"
+                  value={formData.username}
+                  onChange={(e) => onChange(e)}
+                />
+                <label htmlFor="username">Username</label>
+              </div>
+            </div>
             <div className="row">
               <div className="input-field col s12">
                 <i className="material-icons prefix">alternate_email</i>
@@ -21,6 +49,8 @@ const SignUp = () => {
                   type="text"
                   id="email"
                   className="validate"
+                  value={formData.email}
+                  onChange={(e) => onChange(e)}
                 />
                 <label htmlFor="email">Email</label>
                 <span
@@ -40,12 +70,14 @@ const SignUp = () => {
                   type="text"
                   id="password"
                   className="validate"
+                  value={formData.password}
+                  onChange={(e) => onChange(e)}
                 />
                 <label htmlFor="password">Password</label>
               </div>
             </div>
             <button
-              className="btn waves-effect waves-light blue-grey darken-1"
+              className="btn waves-effect waves-blue-grey blue-grey darken-1"
               type="submit"
               name="action"
             >
@@ -54,13 +86,20 @@ const SignUp = () => {
           </form>
         </div>
         <div className="col s6">
-          <p>Or sign up using third-party services</p>
-          <button className="btn waves-effect waves-light blue-grey darken-1">
-            Facebook
-          </button>
-          <button className="btn waves-effect waves-light blue-grey darken-1">
-            Google
-          </button>
+          <div className="row center-align altAuthTxt">
+            ... or sign up using third-party services:
+          </div>
+          <div className="row center-align">
+            <button className="btn waves-effect waves-blue-grey blue-grey darken-1 facebookBtn">
+              Facebook
+            </button>
+            <button className="btn waves-effect waves-blue-grey blue-grey darken-1 googleBtn">
+              Google
+            </button>
+          </div>
+          <div className="row center-align">
+            Already have an account? <Link to="/signin">Sign In</Link>
+          </div>
         </div>
       </div>
     </div>
