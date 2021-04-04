@@ -36,9 +36,12 @@ router
     AuthController.signIn
   );
 
-// Authenticated user can access test secret page
+// Load authenticated user info
 router
-  .route('/secret')
-  .get(passport.authenticate('jwt', { session: false }), AuthController.secret);
+  .route('/')
+  .get(
+    passport.authenticate('jwt', { session: false }),
+    AuthController.loadUser
+  );
 
 module.exports = router;

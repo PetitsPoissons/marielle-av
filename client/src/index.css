@@ -11,6 +11,12 @@
   box-shadow: none !important;
 }
 
+.alert {
+  padding: 0.8rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+}
+
 /***| NAVBAR |***/
 #hamburger-menu {
   font-size: 3.5rem;
@@ -37,21 +43,21 @@ img {
   color: #000;
 }
 /* label focus color */
-.input-field input[type='text']:focus + label {
+.input-field input:focus + label {
   color: #000 !important;
 }
 /* label underline focus color */
-.input-field input[type='text']:focus {
+.input-field input:focus {
   border-bottom: 1px solid #000 !important;
   box-shadow: 0 1px 0 0 #000 !important;
 }
 /* valid color */
-.input-field input[type='text'].valid {
+.input-field input.valid {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
 }
 /* invalid color */
-.input-field input[type='text'].invalid {
+.input-field input.invalid {
   border-bottom: 1px solid #000;
   box-shadow: 0 1px 0 0 #000;
 }

@@ -5,7 +5,7 @@ const User = require('../models/User');
 signToken = (user) => {
   const token = JWT.sign(
     {
-      iss: 'auth-project', // optional
+      iss: 'VitalVegetal', // optional
       sub: user._id, // required
       iat: new Date().getTime(), // optional: exact time the token was issued (returns the current time)
       exp: new Date().setDate(new Date().getDate() + 1), // optional: set expiration date (returns the current time + 1 day ahead)
@@ -23,7 +23,7 @@ module.exports = {
     // check if a user with that email already exists in the database
     const foundUser = await User.findOne({ 'local.email': email });
     if (foundUser) {
-      return res.status(403).send({ error: 'Email is already in use' });
+      return res.status(403).json({ error: 'Email is already in use' });
     }
 
     // create a new user
@@ -47,8 +47,11 @@ module.exports = {
     res.status(200).json({ token });
   },
 
-  secret: async (req, res, next) => {
-    console.log('AuthController.secret() called');
-    res.status(200).send({ secret: 'found' });
+  loadUser: async (req, res, next) => {
+    console.log('req', req);
+    // console.log('req.sub', req.sub);
+    // const user = await User.findById(req.sub);
+    // console.log('user', user);
+    // res.status(200).json(user);
   },
 };

@@ -1,4 +1,4 @@
-import { FETCH_USER, SIGNUP_SUCCESS, SIGNUP_FAIL } from '../actions/types';
+import { FETCH_USER, SIGNUP_SUCCESS, AUTH_ERROR } from '../actions/types';
 
 const initialState = {
   token: '',
@@ -10,7 +10,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   const { type, payload } = action;
-  switch (action.type) {
+  switch (type) {
     case FETCH_USER:
       return {
         ...state,
@@ -19,9 +19,18 @@ export default function (state = initialState, action) {
         currentUser: payload,
       };
     case SIGNUP_SUCCESS:
-      return {};
-    case SIGNUP_FAIL:
-      return {};
+      return {
+        ...state,
+        token: payload,
+        loading: false,
+        isAuthenticated: true,
+        errorMessage: '',
+      };
+    case AUTH_ERROR:
+      return {
+        ...state,
+        errorMessage: payload,
+      };
     default:
       return state;
   }
